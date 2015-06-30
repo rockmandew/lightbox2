@@ -25,7 +25,9 @@ The following is a correction to the lightbox.js file - the fix addresses center
 ```
 
 2. Then inside the changeImage function, at line 265, after this declaration
-    <code>self.sizeContainer($image.width(), $image.height());</code>
+```   
+     self.sizeContainer($image.width(), $image.height());
+```
 
 2.5: Add these lines after the previous code (on line 266).
 ```
