@@ -14,25 +14,29 @@ by [Lokesh Dhakar](http://www.lokeshdhakar.com)
 The following is a correction to the lightbox.js file - the fix addresses centering the lightbox (on open) within a browswer window.
 
 1. Inside the start function, at around line 170 I commented out the assignation of the 'top' property, like this:
-'''// Position Lightbox
-  var top  = $window.scrollTop() + this.options.positionFromTop;
-  var left = $window.scrollLeft();
-  this.$lightbox.css({
-    // top: top + 'px', // comment out this line
-    left: left + 'px'
-  }).fadeIn(this.options.fadeDuration);'''
+```
+    // Position Lightbox
+    var top  = $window.scrollTop() + this.options.positionFromTop;
+    var left = $window.scrollLeft();
+    this.$lightbox.css({
+      // top: top + 'px', // comment out this line
+      left: left + 'px'
+    }).fadeIn(this.options.fadeDuration);
+```
 
 2. Then inside the changeImage function, at line 265, after this declaration
-'self.sizeContainer($image.width(), $image.height());'
+`self.sizeContainer($image.width(), $image.height());`
 
 2.5: Add these lines after the previous code (on line 266).
-''' var window_height = windowHeight;
+```
+    var window_height = windowHeight;
     var img_height = $image.height();
     var scroll_offset  = $(window).scrollTop();
     var view_offset = window_height/2 - img_height/2;
     var top_distance = scroll_offset + view_offset;
 
-    self.$lightbox.css('top', top_distance+'px');'''
+    self.$lightbox.css('top', top_distance+'px');
+```
 
 This should center the image vertically.
 
